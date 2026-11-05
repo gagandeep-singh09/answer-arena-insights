@@ -14,7 +14,104 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bug_reports: {
+        Row: {
+          created_at: string
+          description: string
+          evaluation_id: string | null
+          id: string
+          model: string
+          severity: string
+          status: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string
+          evaluation_id?: string | null
+          id?: string
+          model: string
+          severity?: string
+          status?: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          evaluation_id?: string | null
+          id?: string
+          model?: string
+          severity?: string
+          status?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bug_reports_evaluation_id_fkey"
+            columns: ["evaluation_id"]
+            isOneToOne: false
+            referencedRelation: "evaluations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      evaluations: {
+        Row: {
+          created_at: string
+          gemini_error: string | null
+          gemini_latency_ms: number | null
+          gemini_model: string
+          gemini_rating: number | null
+          gemini_response: string | null
+          id: string
+          notes: string | null
+          openai_error: string | null
+          openai_latency_ms: number | null
+          openai_model: string
+          openai_rating: number | null
+          openai_response: string | null
+          preferred_model: string | null
+          question: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          gemini_error?: string | null
+          gemini_latency_ms?: number | null
+          gemini_model: string
+          gemini_rating?: number | null
+          gemini_response?: string | null
+          id?: string
+          notes?: string | null
+          openai_error?: string | null
+          openai_latency_ms?: number | null
+          openai_model: string
+          openai_rating?: number | null
+          openai_response?: string | null
+          preferred_model?: string | null
+          question: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          gemini_error?: string | null
+          gemini_latency_ms?: number | null
+          gemini_model?: string
+          gemini_rating?: number | null
+          gemini_response?: string | null
+          id?: string
+          notes?: string | null
+          openai_error?: string | null
+          openai_latency_ms?: number | null
+          openai_model?: string
+          openai_rating?: number | null
+          openai_response?: string | null
+          preferred_model?: string | null
+          question?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
