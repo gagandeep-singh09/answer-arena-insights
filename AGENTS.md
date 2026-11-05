@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Evaluation data is read/written only through server functions in src/lib/eval.functions.ts using the admin client; tables have RLS on with no public policies, so the browser never touches them directly.
+- AI calls live in src/lib/ai.server.ts via the Lovable AI Gateway; keys stay server-side.
+- Demo sample data lives only in src/lib/demo.ts and is never saved or mixed into real metrics (src/lib/metrics.ts).
