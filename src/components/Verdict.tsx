@@ -9,7 +9,7 @@ import { saveVerdict } from "@/lib/eval.functions";
 import { fmt } from "@/components/AppShell";
 import type { EvalRow } from "@/lib/metrics";
 
-export function Stars({ value, onChange }: { value: number | null; onChange?: (v: number) => void }) {
+export function Stars({ value, onChange }: { value: number | null; onChange?: ((v: number) => void) | undefined }) {
   return (
     <div className="flex gap-1">
       {[1, 2, 3, 4, 5].map((n) => (
@@ -25,7 +25,7 @@ export function ResponseCard({
   side, model, text, error, latency, loading, rating, onRate, preferred,
 }: {
   side: "openai" | "gemini"; model: string; text: string | null; error: string | null; latency: number | null;
-  loading?: boolean; rating: number | null; onRate?: (v: number) => void; preferred?: boolean;
+  loading?: boolean; rating: number | null; onRate?: ((v: number) => void) | undefined; preferred?: boolean;
 }) {
   const tone = side === "openai" ? "border-openai/40" : "border-gemini/40";
   return (

@@ -38,7 +38,7 @@ function Evaluate() {
     setErr(null);
     setResult(null);
     if (demo) {
-      setResult({ ...DEMO_EVALUATIONS[0], question: "[SAMPLE] " + q });
+      setResult({ ...DEMO_EVALUATIONS[0]!, question: "[SAMPLE] " + q });
       return;
     }
     setLoading(true);
